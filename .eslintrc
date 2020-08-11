@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "quotes": ["error", "single"],
+    "no-undef-init": 0,
+    "import/prefer-default-export": 0,
+    "arrow-parens": 0,
+    "function-paren-newline": 0,
+    "comma-dangle":0,
+    "class-methods-use-this": 0,
+    "no-underscore-dangle": 0,
+    "no-console": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": ["airbnb/base", "plugin:react/recommended"],
+  "plugins": ["react", "import"]
+}

@@ -1,0 +1,10 @@
+.discount-info {
+  text-align: center;
+  position: absolute;
+  bottom: 1rem;
+  right: -3rem;
+  display: block;
+  width: 11rem;
+  padding: 0.5rem;
+  transform: rotate(-45deg);
+}

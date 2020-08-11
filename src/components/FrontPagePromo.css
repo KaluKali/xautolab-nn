@@ -1,0 +1,39 @@
+.tile.is-child {
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+.tile.is-parent {
+	padding: 0.25rem;
+}
+.front-promo .is-ancestor {
+	min-height: 350px;
+}
+
+.front-promo .tile a {
+	text-decoration: none;
+}
+
+.front-promo__article {
+	background-size: cover;
+}
+
+.front-promo__article p {
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+}
+
+.front-promo__article .content {
+	background-size: cover;
+}
+
+.front-promo__article--background-right {
+	background-position: top right;
+}
+
+.front-promo__bestseller-link {
+	margin: 0 auto;
+}
+
+.front-promo__best-seller-image {
+	width: auto;
+	height: 100%;
+	border-radius: 5px;
+}

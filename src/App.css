@@ -1,0 +1,19 @@
+.main-content {
+	min-height: 680px;
+}
+
+.container--paddingless {
+	padding: 0;
+}
+
+.section--paddingless-vertical {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.is-relative {
+	position: relative;
+}
+
+.has-text-secondary {
+}

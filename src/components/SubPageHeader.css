@@ -1,0 +1,11 @@
+.subpage-header {
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(108, 106, 100, 0.125);
+}
+.subpage-header__title {
+  font-family: BlinkMacSystemFont, -apple-system, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.subpage-header__subtitle {
+  font-family: BlinkMacSystemFont, -apple-system, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}

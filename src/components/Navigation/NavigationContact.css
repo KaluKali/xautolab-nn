@@ -1,0 +1,10 @@
+@media screen and (min-width: 1024px){
+    .is-pulled-left-desktop-only {
+        float: left;
+    }
+}
+@media screen and (min-width: 1024px){
+  .is-pulled-right-desktop-only {
+    float: right;
+  }
+}
