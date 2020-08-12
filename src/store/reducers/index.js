@@ -1,10 +1,10 @@
-import { combineReducers } from "redux";
-import cart from "./cartReducer";
-import user from "./userReducer";
-import info from "./infoReducer";
-import products from "./productsReducer";
+import { combineReducers } from 'redux';
+import cart from './cartReducer';
+import user from './userReducer';
+import info from './infoReducer';
+import products from './productsReducer';
 
-import { LOG_OUT_USER } from "../actionTypes/actionTypes";
+import { LOG_OUT_USER } from '../actionTypes/actionTypes';
 
 const appReducer = combineReducers({
   user,

@@ -1,18 +1,20 @@
-import React from "react";
-import { Icon } from "react-icons-kit";
-import { circleRight } from "react-icons-kit/icomoon/circleRight";
-import { eye } from "react-icons-kit/icomoon/eye";
+import React from 'react';
+import { Icon } from 'react-icons-kit';
+import { circleRight } from 'react-icons-kit/icomoon/circleRight';
+import { eye } from 'react-icons-kit/icomoon/eye';
 
-import "./ProductCard.css";
+import './ProductCard.css';
 
-import DiscountInfo from "./DiscountInfo";
+import DiscountInfo from './DiscountInfo';
 
 const ProductCard = props => {
   const {
     noActionFooter,
     noOverlayLink,
     additionalClasses,
-    product: { name, pictures, discount, price },
+    product: {
+      name, pictures, discount, price
+    },
     onQuickViewOpenHandler
   } = props;
   const onQuickViewClickHandler = e => {
@@ -55,7 +57,7 @@ const ProductCard = props => {
   }
 
   return (
-    <div className={"card product-card " + additionalClasses}>
+    <div className={`card product-card ${additionalClasses}`}>
       <div className="card-image product-card__image-holder">
         {productImage}
       </div>

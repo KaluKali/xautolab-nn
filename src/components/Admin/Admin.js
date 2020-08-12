@@ -1,8 +1,10 @@
-import React, { Component, Fragment } from "react";
-import { Switch, Link, Route, withRouter } from "react-router-dom";
-import ProductEditForm from "./ProductEditForm";
-import ProductsList from "./ProductsList";
-import "./Admin.css";
+import React, { Component, Fragment } from 'react';
+import {
+  Switch, Link, Route, withRouter
+} from 'react-router-dom';
+import ProductEditForm from './ProductEditForm';
+import ProductsList from './ProductsList';
+import './Admin.css';
 
 class Admin extends Component {
   render() {

@@ -2,7 +2,6 @@ const path = require('path');
 
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 
-
 module.exports = (options) => ({
   target: 'web',
   devtool: options.devtool,
@@ -37,7 +36,7 @@ module.exports = (options) => ({
   devServer: {
     historyApiFallback: true,
     disableHostCheck: true,
-    compress:true,
+    compress: true,
     host: '0.0.0.0',
     port: 80
   },

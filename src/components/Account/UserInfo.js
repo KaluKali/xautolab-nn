@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import "./UserInfo.css";
-import { logOutUser, updateUserDetails } from "../../store/actions/";
+import './UserInfo.css';
+import { logOutUser, updateUserDetails } from '../../store/actions';
 
-import Loader from "../UI/Loaders/Loader";
+import Loader from '../UI/Loaders/Loader';
 
 class UserInfo extends Component {
   state = {
@@ -27,9 +27,7 @@ class UserInfo extends Component {
 
   handleDetailsUpdate = () => {
     if (this.state.editing === false) {
-      this.setState(prevState => {
-        return { editing: !prevState.editing };
-      });
+      this.setState(prevState => ({ editing: !prevState.editing }));
     } else {
       const user = {
         userEmail: this.props.user.userEmail,
@@ -37,20 +35,16 @@ class UserInfo extends Component {
         secondName: this.state.secondName
       };
       this.props.updateUserDetails(user);
-      this.setState(prevState => {
-        return { editing: !prevState.editing };
-      });
+      this.setState(prevState => ({ editing: !prevState.editing }));
     }
   };
 
   handleCancelUpdate = () => {
-    this.setState(prevState => {
-      return { editing: !prevState.editing };
-    });
+    this.setState(prevState => ({ editing: !prevState.editing }));
   };
 
   handleInputChange = (e, field) => {
-    const value = e.target.value;
+    const { value } = e.target;
     this.setState({
       [field]: value
     });
@@ -108,7 +102,7 @@ class UserInfo extends Component {
                   </label>
                   <input
                     className="input"
-                    onChange={e => this.handleInputChange(e, "name")}
+                    onChange={e => this.handleInputChange(e, 'name')}
                     name="name"
                     type="text"
                     placeholder={`current ${this.props.user.name}`}
@@ -121,7 +115,7 @@ class UserInfo extends Component {
                   <input
                     className="input"
                     name="secondName"
-                    onChange={e => this.handleInputChange(e, "secondName")}
+                    onChange={e => this.handleInputChange(e, 'secondName')}
                     type="text"
                     placeholder={`current ${this.props.user.secondName}`}
                   />
@@ -146,7 +140,7 @@ class UserInfo extends Component {
               onClick={this.handleDetailsUpdate}
               className="button is-warning is-inverted is-fullwidth is-outlined is-small is-inverted "
             >
-              {this.state.editing ? "Сохранить" : "Изменить"}
+              {this.state.editing ? 'Сохранить' : 'Изменить'}
             </button>
             <button
               onClick={this.handleCancelUpdate}
@@ -167,17 +161,13 @@ class UserInfo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    updateUserDetails: user => dispatch(updateUserDetails(user)),
-    logOutUser: () => dispatch(logOutUser())
-  };
-};
+const mapStateToProps = state => ({
+  user: state.user
+});
+const mapDispatchToProps = dispatch => ({
+  updateUserDetails: user => dispatch(updateUserDetails(user)),
+  logOutUser: () => dispatch(logOutUser())
+});
 
 export default connect(
   mapStateToProps,

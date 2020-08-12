@@ -1,11 +1,11 @@
-import * as actionTypes from "../actionTypes/actionTypes";
+import * as actionTypes from '../actionTypes/actionTypes';
 
 const initialState = {
   isLoading: false,
   lastDoc: [],
   products: [],
   pointer: {},
-  error:'',
+  error: '',
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -18,7 +18,7 @@ const productsReducer = (state = initialState, action) => {
     case actionTypes.GETTING_PRODUCTS_FINISHED:
       return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         ...action.payload,
       };
     default:

@@ -5,9 +5,8 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = require('./webpack.config')({
   mode: 'development',
-  // Add hot reloading in development
   entry: {
-    main:"./src/index.js"
+    main: './src/index.js'
   },
   output: {
     filename: '[name].js',

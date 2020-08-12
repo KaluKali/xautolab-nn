@@ -1,10 +1,10 @@
 {
-  "name": "trit-jitsi-inviter",
-  "description": "Website for generating tokens",
+  "name": "xautolab-nn",
+  "description": "Website for company XAutoLab-NN",
   "author": "kalukali",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KaluKali"
+    "url": "https://github.com/KaluKali/xautolab-nn"
   },
   "license": "ISC",
   "scripts": {
@@ -60,12 +60,12 @@
     "react-materialize": "^3.9.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^3.4.2",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^9.0.3",
-    "unused-files-webpack-plugin": "^3.4.0",
-    "terser-webpack-plugin": "latest"
+    "terser-webpack-plugin": "latest",
+    "unused-files-webpack-plugin": "^3.4.0"
   }
 }

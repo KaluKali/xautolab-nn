@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react';
 
-import CategoryHeader from "../components/CategoryHeader";
-import ProductCard from "../components/ProductCard";
-import ProductPreview from "../components/ProductPreview";
-import ModalBlank from "../components/UI/Modals/ModalBlank";
-import Loader from "../components/UI/Loaders/Loader";
-import { db_products } from '../db/db'
-import Alert from "../components/UI/Alerts/Alert";
+import CategoryHeader from '../components/CategoryHeader';
+import ProductCard from '../components/ProductCard';
+import ProductPreview from '../components/ProductPreview';
+import ModalBlank from '../components/UI/Modals/ModalBlank';
+import Loader from '../components/UI/Loaders/Loader';
+import { db_products } from '../db/db';
+import Alert from '../components/UI/Alerts/Alert';
 
 class CategoryPage extends Component {
   state = {
-    categoryName: "",
+    categoryName: '',
     productsInCategory: [],
-    currentProduct: "",
+    currentProduct: '',
     isModalActive: false,
     isLoading: true,
-    error: ""
+    error: ''
   };
 
   // setting state when component mounts first time
@@ -23,8 +23,8 @@ class CategoryPage extends Component {
     const { categoryName } = this.props.match.params;
     try {
       const docs = await db_products.where('category', '==', categoryName).get();
-      let productsInCategory = [];
-      docs.docs.map((doc) => productsInCategory.push({_id:doc.id,...doc.data()}));
+      const productsInCategory = [];
+      docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
       this.setState({
         categoryName,
         productsInCategory,
@@ -49,8 +49,8 @@ class CategoryPage extends Component {
 
       try {
         const docs = await db_products.where('category', '==', currentCategoryName).get();
-        let productsInCategory = [];
-        docs.docs.map((doc) => productsInCategory.push({_id:doc.id,...doc.data()}));
+        const productsInCategory = [];
+        docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
 
         this.setState({
           categoryName: currentCategoryName,
@@ -69,9 +69,9 @@ class CategoryPage extends Component {
 
   componentWillUnmount() {
     this.setState({
-      categoryName: "",
+      categoryName: '',
       productsInCategory: [],
-      currentProduct: "",
+      currentProduct: '',
       isModalActive: false
     });
   }

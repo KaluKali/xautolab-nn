@@ -1,27 +1,27 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { logInUser } from "../../store/actions";
+import { logInUser } from '../../store/actions';
 
 class LoginForm extends Component {
   state = {
-    mode: "login",
-    email: "",
-    password: "",
+    mode: 'login',
+    email: '',
+    password: '',
     message: this.props.message
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.message !== prevState.message) {
       return { message: nextProps.message };
-    } else return null;
+    } return null;
   }
 
   handleFormSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
 
-    if (this.state.mode === "login") {
+    if (this.state.mode === 'login') {
       this.props.logInUser({
         email,
         password
@@ -33,6 +33,7 @@ class LoginForm extends Component {
     const email = e.target.value;
     this.setState({ email });
   }
+
   handlePasswordChange(e) {
     const password = e.target.value;
     this.setState({ password });
@@ -73,7 +74,7 @@ class LoginForm extends Component {
           <div className="control buttons">
             <input
               type="submit"
-              value={"Вход"}
+              value={'Вход'}
               className="button is-primary is-fullwidth"
             />
           </div>
@@ -82,16 +83,12 @@ class LoginForm extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    message: state.info.message
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    logInUser: user => dispatch(logInUser(user)),
-  };
-};
+const mapStateToProps = state => ({
+  message: state.info.message
+});
+const mapDispatchToProps = dispatch => ({
+  logInUser: user => dispatch(logInUser(user)),
+});
 
 export default connect(
   mapStateToProps,

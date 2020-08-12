@@ -1,11 +1,11 @@
-import * as actionTypes from "../actionTypes/actionTypes";
+import * as actionTypes from '../actionTypes/actionTypes';
 
 const initialState = {
   isLogged: false,
   isAdmin: false,
   userEmail: null,
-  name: "edit your details...",
-  secondName: "edit your details...",
+  name: 'edit your details...',
+  secondName: 'edit your details...',
 };
 
 const userReducer = (state = initialState, action) => {

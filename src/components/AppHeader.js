@@ -1,20 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import {phoneHangUp} from 'react-icons-kit/icomoon/phoneHangUp'
-import {creditCard} from 'react-icons-kit/icomoon/creditCard'
-import {pigMoney} from 'react-icons-kit/metrize/pigMoney'
-import {gears} from 'react-icons-kit/fa/gears'
-import {user} from "react-icons-kit/ikons/user";
-import {award} from 'react-icons-kit/feather/award'
-import {ic_access_time} from 'react-icons-kit/md/ic_access_time'
+import { phoneHangUp } from 'react-icons-kit/icomoon/phoneHangUp';
+import { creditCard } from 'react-icons-kit/icomoon/creditCard';
+import { pigMoney } from 'react-icons-kit/metrize/pigMoney';
+import { gears } from 'react-icons-kit/fa/gears';
+import { user } from 'react-icons-kit/ikons/user';
+import { award } from 'react-icons-kit/feather/award';
+import { ic_access_time } from 'react-icons-kit/md/ic_access_time';
 
 import './AppHeader.css';
+import { Icon } from 'react-icons-kit';
 import backgroundImage from '../assets/images/mainback.jpg';
-import logo from '../assets/images/logo.png'
-import { Icon } from "react-icons-kit";
+import logo from '../assets/images/logo.png';
 
 const AppHeader = props => {
+  // eslint-disable-next-line react/prop-types
   const biggerHeroClass = props.location.pathname === '/' && 'is-medium';
 
   return (
@@ -84,7 +85,7 @@ const AppHeader = props => {
                     <label className="label">Введите номер телефона<br/>мы перезвоним вам в течении <p className="has-text-danger">15 секунд</p></label>
                   </div>
                   <div className="column">
-                    <button className={`has-background-white has-text-white wishlist-button centered `}>
+                    <button className={'has-background-white has-text-white wishlist-button centered '}>
                       <Icon className={'wishlist-button__icon has-text-danger'} size={24} icon={phoneHangUp} />
                     </button>
                   </div>

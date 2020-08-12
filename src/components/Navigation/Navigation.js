@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Icon } from "react-icons-kit";
-import { user } from "react-icons-kit/ikons/user";
-import { ic_build as adminIcon } from "react-icons-kit/md/ic_build";
+import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { Icon } from 'react-icons-kit';
+import { user } from 'react-icons-kit/ikons/user';
+import { ic_build as adminIcon } from 'react-icons-kit/md/ic_build';
 
-import "./Navigation.css";
+import './Navigation.css';
 
 class Navigation extends Component {
   state = {
@@ -21,9 +20,7 @@ class Navigation extends Component {
   }
 
   menuOpenHandler = () => {
-    this.setState(prevState => {
-      return { isMobileMenuOpen: !prevState.isMobileMenuOpen };
-    });
+    this.setState(prevState => ({ isMobileMenuOpen: !prevState.isMobileMenuOpen }));
   };
 
   render() {
@@ -35,8 +32,8 @@ class Navigation extends Component {
         <div className="container container--paddingless">
           <div className="navbar-brand">
             <div
-              className={`navbar-burger burger  ${this.state.isMobileMenuOpen &&
-              "is-active"}`}
+              className={`navbar-burger burger  ${this.state.isMobileMenuOpen
+              && 'is-active'}`}
               onClick={this.menuOpenHandler}
             >
               <span />
@@ -45,8 +42,8 @@ class Navigation extends Component {
             </div>
           </div>
           <div
-            className={`navbar-menu  ${this.state.isMobileMenuOpen &&
-            "is-active"}`}
+            className={`navbar-menu  ${this.state.isMobileMenuOpen
+            && 'is-active'}`}
           >
             <div className="navbar-end ">
               <Link to="/category/remtormsys" className="navbar-item has-text-dark ">

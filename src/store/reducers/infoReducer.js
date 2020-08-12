@@ -1,7 +1,7 @@
-import * as actionTypes from "../actionTypes/actionTypes";
+import * as actionTypes from '../actionTypes/actionTypes';
 
 const initialState = {
-  message: ""
+  message: ''
 };
 
 const infoReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const infoReducer = (state = initialState, action) => {
     case actionTypes.CLEAR_MESSAGE:
       return {
         ...state,
-        message: ""
+        message: ''
       };
     default:
       return state;

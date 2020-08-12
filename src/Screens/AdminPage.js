@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Admin from "../components/Admin/Admin";
-import SubPageHeader from "../components/SubPageHeader";
-import LoginForm from "../components/Account/LoginForm";
+import Admin from '../components/Admin/Admin';
+import SubPageHeader from '../components/SubPageHeader';
+import LoginForm from '../components/Account/LoginForm';
 
 class AdminPage extends Component {
   render() {
@@ -27,15 +27,11 @@ class AdminPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-const mapDispatchToProps = dispatch => {
-  return {};
-};
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

@@ -19,4 +19,3 @@ export const GETTING_PRODUCTS_FAILURE = 'GETTING_PRODUCTS_FAILURE';
 // Info actions
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
-

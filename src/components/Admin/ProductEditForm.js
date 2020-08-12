@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from "react";
-import { withRouter } from "react-router-dom";
-import "./ProductEditForm.css";
+import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
+import './ProductEditForm.css';
 import { db_products } from '../../db/db';
 
 class ProductEditForm extends Component {
   state = {
-    name: "",
-    price: "",
+    name: '',
+    price: '',
     pictures: [],
     tags: [],
-    color: "",
-    discount: "",
-    category: "overall",
-    description: "",
+    color: '',
+    discount: '',
+    category: 'overall',
+    description: '',
     isActive: false,
-    tag: "",
-    picture: ""
+    tag: '',
+    picture: ''
   };
 
   componentDidMount() {
@@ -25,7 +25,7 @@ class ProductEditForm extends Component {
       db_products.doc(productId)
         .get()
         .then(doc => {
-          let product = doc.data();
+          const product = doc.data();
           this.setState({
             name: product.name,
             price: product.price,
@@ -47,20 +47,20 @@ class ProductEditForm extends Component {
 
   handleFormClear = () => {
     this.setState({
-      name: "",
-      price: "",
+      name: '',
+      price: '',
       pictures: [],
       tags: [],
-      color: "",
-      discount: "",
-      category: "",
-      description: "",
+      color: '',
+      discount: '',
+      category: '',
+      description: '',
       isActive: false,
-      tag: "",
-      picture: ""
+      tag: '',
+      picture: ''
     });
 
-    this.props.history.push("/admin/products/list");
+    this.props.history.push('/admin/products/list');
   };
 
   handleFormSubmit = async e => {
@@ -70,16 +70,16 @@ class ProductEditForm extends Component {
       // update
       try {
         await db_products.doc(productId).set({
-            name: this.state.name,
-            price: this.state.price,
-            pictures: this.state.pictures,
-            tags: this.state.tags,
-            color: this.state.color,
-            discount: this.state.discount,
-            category: this.state.category,
-            description: this.state.description,
-            isActive: (this.state.isActive === "true")
-          });
+          name: this.state.name,
+          price: this.state.price,
+          pictures: this.state.pictures,
+          tags: this.state.tags,
+          color: this.state.color,
+          discount: this.state.discount,
+          category: this.state.category,
+          description: this.state.description,
+          isActive: (this.state.isActive === 'true')
+        });
         this.handleFormClear();
       } catch (error) {
         console.log(error);
@@ -96,7 +96,7 @@ class ProductEditForm extends Component {
           discount: this.state.discount,
           category: this.state.category,
           description: this.state.description,
-          isActive: (this.state.isActive === "true")
+          isActive: (this.state.isActive === 'true')
         });
         this.handleFormClear();
       } catch (error) {
@@ -107,63 +107,51 @@ class ProductEditForm extends Component {
 
   handleTagAdd = e => {
     e.preventDefault();
-    this.setState(prevState => {
-      return { tags: [...prevState.tags, this.state.tag], tag: "" };
-    });
+    this.setState(prevState => ({ tags: [...prevState.tags, this.state.tag], tag: '' }));
   };
 
   handlePictureAdd = e => {
     e.preventDefault();
 
-    this.setState(prevState => {
-      return {
-        picture: "",
-        pictures: [...prevState.pictures, prevState.picture]
-      };
-    });
+    this.setState(prevState => ({
+      picture: '',
+      pictures: [...prevState.pictures, prevState.picture]
+    }));
   };
 
   handlePictureRemove = deletedPic => {
-    this.setState(prevState => {
-      return {
-        pictures: [
-          ...prevState.pictures.filter(picture => picture !== deletedPic)
-        ]
-      };
-    });
+    this.setState(prevState => ({
+      pictures: [
+        ...prevState.pictures.filter(picture => picture !== deletedPic)
+      ]
+    }));
   };
 
-  renderTags = () => {
-    return this.state.tags.map(tag => (
-      <span className="tag is-warning" key={tag}>
-        {tag}
-        <button
-          className="delete is-small"
-          onClick={() => this.handleTagRemove(tag)}
-        />
-      </span>
-    ));
-  };
+  renderTags = () => this.state.tags.map(tag => (
+    <span className="tag is-warning" key={tag}>
+      {tag}
+      <button
+        className="delete is-small"
+        onClick={() => this.handleTagRemove(tag)}
+      />
+    </span>
+  ));
 
   handleTagRemove = delTagName => {
-    this.setState(prevState => {
-      return {
-        tags: [...prevState.tags.filter(tag => tag !== delTagName)]
-      };
-    });
+    this.setState(prevState => ({
+      tags: [...prevState.tags.filter(tag => tag !== delTagName)]
+    }));
   };
 
-  renderPicturesLinks = () => {
-    return this.state.pictures.map(pictureLink => (
-      <span className="tag is-warning" key={pictureLink}>
-        {pictureLink}
-        <button
-          className="delete is-small"
-          onClick={() => this.handlePictureRemove(pictureLink)}
-        />
-      </span>
-    ));
-  };
+  renderPicturesLinks = () => this.state.pictures.map(pictureLink => (
+    <span className="tag is-warning" key={pictureLink}>
+      {pictureLink}
+      <button
+        className="delete is-small"
+        onClick={() => this.handlePictureRemove(pictureLink)}
+      />
+    </span>
+  ));
 
   render() {
     const { productId } = this.props.match.params;
@@ -171,7 +159,7 @@ class ProductEditForm extends Component {
     return (
       <form className="product-edit-form" onSubmit={this.handleFormSubmit}>
         <h2 className="title">
-          {productId ? `Изменяемый товар: ${productId}` : `Добавить новый товар`}
+          {productId ? `Изменяемый товар: ${productId}` : 'Добавить новый товар'}
         </h2>
         <div className="field">
           <label htmlFor="name" className="label">
@@ -249,7 +237,7 @@ class ProductEditForm extends Component {
             </div>
             <div className="column">
               <button
-                disabled={this.state.picture.trim() === ""}
+                disabled={this.state.picture.trim() === ''}
                 className="button is-light"
                 onClick={this.handlePictureAdd}
               >
@@ -284,7 +272,7 @@ class ProductEditForm extends Component {
             </div>
             <div className="column">
               <button
-                disabled={this.state.tag.trim() === ""}
+                disabled={this.state.tag.trim() === ''}
                 className="button is-light"
                 onClick={this.handleTagAdd}
               >
@@ -380,7 +368,7 @@ class ProductEditForm extends Component {
             <div className="field">
               <div className="control">
                 <button className="button is-primary button-submit">
-                  {productId ? "Обновить" : "Добавить"}
+                  {productId ? 'Обновить' : 'Добавить'}
                 </button>
 
                 <button

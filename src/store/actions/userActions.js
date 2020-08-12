@@ -1,6 +1,6 @@
-import * as actionTypes from "../actionTypes/actionTypes";
-import db, { auth } from "../../db/db";
-import { clearMessage, addMessage } from "./infoActions";
+import * as actionTypes from '../actionTypes/actionTypes';
+import db, { auth } from '../../db/db';
+import { clearMessage, addMessage } from './infoActions';
 
 export const logInUser = user => dispatch => {
   auth
@@ -32,7 +32,7 @@ export const logOutUser = () => dispatch => {
 };
 
 export const fetchUserDetails = user => dispatch => {
-  db.collection("users")
+  db.collection('users')
     .doc(user)
     .get()
     .then(doc => {
@@ -40,11 +40,11 @@ export const fetchUserDetails = user => dispatch => {
         const userDetails = doc.data();
         dispatch(updatedUserDetails(userDetails));
       } else {
-        console.log("No such document!");
+        console.log('No such document!');
       }
     })
     .catch(error => {
-      console.log("Error getting document:", error);
+      console.log('Error getting document:', error);
     });
 
   // db.collection("product")
@@ -71,7 +71,7 @@ export const fetchUserDetails = user => dispatch => {
 };
 
 export const updateUserDetails = user => dispatch => {
-  db.collection("users")
+  db.collection('users')
     .doc(user.userEmail)
     .update(user)
     .then(dispatch(updatedUserDetails(user)));

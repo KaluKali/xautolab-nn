@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import 'bulma/css/bulma.min.css'
-import "bulma-tooltip";
-import "./App.css";
-import { userLoggedIn } from "./store/actions";
-import { auth } from "./db/db";
+import 'bulma/css/bulma.min.css';
+import 'bulma-tooltip';
+import './App.css';
+import { userLoggedIn } from './store/actions';
+import { auth } from './db/db';
 
 import SocialLinks from './components/Navigation/SocialLinks';
-import NavigationContact from "./components/Navigation/NavigationContact";
-import Navigation from "./components/Navigation/Navigation";
-import AppHeader from "./components/AppHeader";
-import FrontPage from "./Screens/FrontPage";
-import CategoryPage from "./Screens/CategoryPage";
-import MyAccount from "./Screens/MyAccount";
-import ContactPage from "./Screens/ContactPage";
-import AdminPage from "./Screens/AdminPage";
+import NavigationContact from './components/Navigation/NavigationContact';
+import Navigation from './components/Navigation/Navigation';
+import AppHeader from './components/AppHeader';
+import FrontPage from './Screens/FrontPage';
+import CategoryPage from './Screens/CategoryPage';
+import MyAccount from './Screens/MyAccount';
+import ContactPage from './Screens/ContactPage';
+import AdminPage from './Screens/AdminPage';
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends Component {
       }
     });
   }
-// todo validateDOMNesting(...): <a> cannot appear as a descendant of <a>. this is not validate path in Link NavigationContact.js
+  // todo validateDOMNesting(...): <a> cannot appear as a descendant of <a>. this is not validate path in Link NavigationContact.js
   render() {
     return (
       <div>
@@ -48,11 +48,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
+const mapStateToProps = state => ({
+  user: state.user
+});
 const mapDispatchToProps = dispatch => ({
   userLoggedIn: user => dispatch(userLoggedIn(user.email))
 });

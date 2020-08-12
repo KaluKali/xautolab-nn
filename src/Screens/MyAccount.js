@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
-import { logOutUser } from "../store/actions/";
+import { logOutUser } from '../store/actions';
 
-import SubPageHeader from "../components/SubPageHeader";
-import LoginForm from "../components/Account/LoginForm";
-import UserInfo from "../components/Account/UserInfo";
+import SubPageHeader from '../components/SubPageHeader';
+import LoginForm from '../components/Account/LoginForm';
+import UserInfo from '../components/Account/UserInfo';
 
 class MyAccount extends Component {
   state = {
@@ -15,7 +15,7 @@ class MyAccount extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.user.userEmail !== prevState.userEmail) {
       return { userEmail: nextProps.user.userEmail };
-    } else return null;
+    } return null;
   }
 
   render() {
@@ -41,18 +41,14 @@ class MyAccount extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    isUserLogged: state.user.isLogged,
-    user: state.user
-  };
-};
+const mapStateToProps = state => ({
+  isUserLogged: state.user.isLogged,
+  user: state.user
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logOutUser: () => dispatch(logOutUser())
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  logOutUser: () => dispatch(logOutUser())
+});
 
 export default connect(
   mapStateToProps,

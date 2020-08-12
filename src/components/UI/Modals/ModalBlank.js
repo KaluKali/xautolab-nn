@@ -1,7 +1,7 @@
-import React from "react";
-import { CSSTransition } from "react-transition-group";
+import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 
-import "./ModalBlank.css";
+import './ModalBlank.css';
 
 const ModalBlank = props => {
   const { children, isModalActive, onCloseClick } = props;

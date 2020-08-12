@@ -1,10 +1,8 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import "./NavigationContact.css";
-import logo from "../../assets/images/logonav.png"
-
+import './NavigationContact.css';
+import logo from '../../assets/images/logonav.png';
 
 class NavigationContact extends Component {
   render() {
