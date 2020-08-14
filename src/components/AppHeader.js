@@ -15,7 +15,7 @@ import { Icon } from 'react-icons-kit';
 import backgroundImage from '../assets/images/mainback.jpg';
 import logo from '../assets/images/logo.png';
 
-const ERR_REQ = 1;
+const IDLE = 1;
 const SENT_REQ = 2;
 const ERR_FORMAT = 3;
 const LOADING = 4;
@@ -23,18 +23,20 @@ const LOADING = 4;
 class AppHeader extends Component {
   state = {
     number: '',
-    isLoading: 1,
+    isLoading: IDLE,
   };
 
   onCallBack = (e) => {
     e.preventDefault();
     if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(this.state.number)) {
-      this.setState({ isLoading: 2 });
+      this.setState({ isLoading: LOADING });
       axios({
         method: 'POST', url: 'http://kalukali.pw:3000/', headers: { number: this.state.number }
       })
-        .then(() => this.setState({ isLoading: 3 }))
-        .catch(() => this.setState({ isLoading: 3 }));
+        .then(() => this.setState({ isLoading: SENT_REQ }))
+        .catch(() => this.setState({ isLoading: SENT_REQ }));
+    } else {
+      this.setState({ isLoading: ERR_FORMAT });
     }
   };
 
@@ -65,17 +67,17 @@ class AppHeader extends Component {
                 <div className="columns">
                   <div className="column">
                     <Icon size={24} icon={ic_access_time} />
-                    <label> Скорость работы</label>
+                    <label className='has-text-weight-bold'> Скорость работы</label>
                     <div className="columns is-mobile">
                       <div className="column">
                         <br/>
                         <Icon size={24} icon={award} />
-                        <label> Гарантия до 1 года</label>
+                        <label className='has-text-weight-bold'> Гарантия до 1 года</label>
                         <div className={'columns'}>
                           <div className="column">
                             <br/>
                             <Icon size={24} icon={gears} />
-                            <label> Оригинальные запчасти</label>
+                            <label className='has-text-weight-bold'> Оригинальные запчасти</label>
                           </div>
                         </div>
                       </div>
@@ -83,17 +85,17 @@ class AppHeader extends Component {
                   </div>
                   <div className="column">
                     <Icon size={24} icon={user} />
-                    <label> Профессиональные мастера</label>
+                    <label className='has-text-weight-bold'> Профессиональные мастера</label>
                     <div className="columns is-mobile">
                       <div className="column">
                         <br/>
                         <Icon size={24} icon={pigMoney} />
-                        <label> Разумные цены</label>
+                        <label className='has-text-weight-bold'> Разумные цены</label>
                         <div className={'columns'}>
                           <div className="column">
                             <br/>
                             <Icon size={24} icon={creditCard} />
-                            <label> Наличный и безналичный расчет</label>
+                            <label className='has-text-weight-bold'> Наличный и безналичный расчет</label>
                           </div>
                         </div>
                       </div>
@@ -138,18 +140,18 @@ class AppHeader extends Component {
                   <br/>
                   <div className="field">
                     <p className="control ">
-                      { this.state.isLoading === 1 ? (
-                        <button className="button is-danger is-rounded is-fullwidth" onClick={this.onCallBack}>
-                      Перезвоните мне
-                        </button>
-                      ) : this.state.isLoading === 2 ? (<button className="button is-danger is-rounded is-fullwidth is-loading" onClick={this.onCallBack}>
-                        Перезвоните мне
-                      </button>)
-                        : this.state.isLoading === 3 ? (<button className="button is-danger is-rounded is-fullwidth" onClick={this.onCallBack} disabled>
-                          Запрос отправлен
-                        </button>) : (<button className="button is-danger is-rounded is-fullwidth" onClick={this.onCallBack}>
-                          Перезвоните мне
+                      {
+                        this.state.isLoading === LOADING ? (<button className="button is-danger is-rounded is-fullwidth is-loading">
                         </button>)
+                          : this.state.isLoading === SENT_REQ ? (<button className="button is-danger is-rounded is-fullwidth" disabled>
+                          Запрос отправлен
+                          </button>)
+                            : this.state.isLoading === ERR_FORMAT ? (<button className="button is-danger is-rounded is-fullwidth" onClick={this.onCallBack}>
+                          Неверный формат номера
+                            </button>) : (
+                              <button className="button is-danger is-rounded is-fullwidth" onClick={this.onCallBack}>
+                              Перезвоните мне
+                              </button>)
                       }
                     </p>
                   </div>
