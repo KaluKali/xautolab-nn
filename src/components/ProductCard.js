@@ -13,7 +13,7 @@ const ProductCard = props => {
     noOverlayLink,
     additionalClasses,
     product: {
-      name, pictures, discount, price
+      name, pictures, discount, price, subprice
     },
     onQuickViewOpenHandler
   } = props;
@@ -64,14 +64,14 @@ const ProductCard = props => {
       <div className="card-content product-card__info">
         <header>
           <label
-            className="title is-size-5 product-card__name has-text-centered"
+            className="title is-size-5 product-card__name has-text-centered has-text-white"
           >
             {name}
           </label>
         </header>
         <div className="columns is-centered">
-          <div className="column is-4-touch is-4 has-text-centered has-text-danger has-text-weight-semibold product-card__price">
-            {price.toFixed(2)} ₽
+          <div className="column is-4-touch is-5 has-text-centered has-text-danger has-text-weight-semibold product-card__price">
+            {subprice}{price.toFixed(2)} ₽
           </div>
         </div>
       </div>

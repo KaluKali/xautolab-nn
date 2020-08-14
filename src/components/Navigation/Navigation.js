@@ -25,14 +25,11 @@ class Navigation extends Component {
 
   render() {
     return (
-      <nav
-        className="navbar has-background-white "
-        aria-label="main navigation"
-      >
+      <nav className="navbar has-background-black" aria-label="main navigation">
         <div className="container container--paddingless">
           <div className="navbar-brand">
             <div
-              className={`navbar-burger burger  ${this.state.isMobileMenuOpen
+              className={`navbar-burger burger has-text-white ${this.state.isMobileMenuOpen
               && 'is-active'}`}
               onClick={this.menuOpenHandler}
             >
@@ -42,43 +39,37 @@ class Navigation extends Component {
             </div>
           </div>
           <div
-            className={`navbar-menu  ${this.state.isMobileMenuOpen
+            className={`navbar-menu has-background-black ${this.state.isMobileMenuOpen
             && 'is-active'}`}
           >
-            <div className="navbar-end ">
-              <Link to="/category/remtormsys" className="navbar-item has-text-dark ">
+            <div className="navbar-end">
+              <Link to="/category/profdiag" className="navbar-item has-text-white has-background-black has-text-weight-bold">
+                Проф. диагностика
+              </Link>
+              <Link to="/category/remtormsys" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 Тормозная сис-ма
               </Link>
-              <Link to="/category/remtoplsys" className="navbar-item has-text-dark ">
+              <Link to="/category/remtoplsys" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 Топливная сис-ма
               </Link>
-              <Link to="/category/dvc" className="navbar-item has-text-dark ">
+              <Link to="/category/dvc" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 ДВС
               </Link>
-              <Link
-                to="/category/mkppakpp"
-                className="navbar-item has-text-dark "
-              >
+              <Link to="/category/mkppakpp" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 АКПП/МКПП
               </Link>
-              <Link
-                to="/category/autoelect"
-                className="navbar-item has-text-dark "
-              >
+              <Link to="/category/autoelect" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 Автоэлектрика
               </Link>
-              <Link
-                to="/category/texobs"
-                className="navbar-item has-text-dark "
-              >
+              <Link to="/category/texobs" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 Тех. обслуживание
               </Link>
               {this.props.isAdmin ? (
-                <Link to="/admin" className="navbar-item has-text-dark ">
+                <Link to="/admin" className="navbar-item has-text-white has-background-black">
                   <Icon className="navbar-icon" icon={adminIcon} />
                 </Link>
               ) : null}
-              <Link to="/my-account" className="navbar-item has-text-dark ">
+              <Link to="/my-account" className="navbar-item has-text-white has-background-black">
                 <Icon className="navbar-icon" icon={user} />
               </Link>
             </div>

@@ -76,13 +76,13 @@ class UserInfo extends Component {
         <div className="column is-2 user-info__action buttons control">
           <button
             onClick={this.handleLogOut}
-            className="button is-warning is-inverted is-fullwidth is-small log-out-button "
+            className="button is-warning is-inverted is-fullwidth is-small"
           >
             Выход
           </button>
           <button
             onClick={this.handleDetailsUpdate}
-            className="button is-warning is-inverted is-fullwidth is-outlined is-small is-inverted "
+            className="button is-warning is-inverted is-fullwidth is-small "
           >
             Обновить информацию
           </button>

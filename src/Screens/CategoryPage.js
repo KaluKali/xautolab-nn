@@ -102,8 +102,9 @@ class CategoryPage extends Component {
     } = this.state;
 
     const productCards = productsInCategory.map(product => (product.isActive ? (
-      <div key={product._id} className="column is-4-tablet is-3-widescreen">
+      <div key={product._id} className="column is-4-tablet is-3-widescreen ">
         <ProductCard
+          additionalClasses={'has-background-black-ter'}
           product={product}
           onQuickViewOpenHandler={() => this.showProductPreview(product._id)}
         />

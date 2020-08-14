@@ -8,3 +8,15 @@
     float: right;
   }
 }
+#demoFont {
+  font-family: "Arial Black", Gadget, sans-serif;
+  letter-spacing: 6px;
+  word-spacing: 0;
+  color: #a30707;
+  font-weight: 400;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: uppercase;
+  text-shadow: 3px 2px 0 white;
+}

@@ -16,8 +16,8 @@ const CategoryHeader = props => {
   };
   return (
     <header className='category-header'>
-      <h2 className='title is-size-3 has-text-secondary has-text-weight-normal category-title is-family-primary'>
-        Товары в категории <span className='has-text-weight-bold category-name'>{category_name[title]}</span>.
+      <h2 className='title is-size-3 has-text-secondary has-text-weight-normal category-title is-family-primary has-text-white'>
+        Товары в категории <span className='category-name'>{category_name[title]}</span>
       </h2>
     </header>
   );

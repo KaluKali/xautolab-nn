@@ -26,7 +26,7 @@ class App extends Component {
       }
     });
   }
-  // todo validateDOMNesting(...): <a> cannot appear as a descendant of <a>. this is not validate path in Link NavigationContact.js
+
   render() {
     return (
       <div>

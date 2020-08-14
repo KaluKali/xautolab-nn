@@ -51,7 +51,7 @@ class LoginForm extends Component {
         ) : null}
         <form onSubmit={e => this.handleFormSubmit(e)}>
           <div className="field">
-            <label className="label">Почта</label>
+            <label className="label has-text-white">Почта</label>
             <div className="control">
               <input
                 className="input"
@@ -63,7 +63,7 @@ class LoginForm extends Component {
           </div>
 
           <div className="field">
-            <label className="label">Пароль</label>
+            <label className="label has-text-white">Пароль</label>
             <input
               className="input"
               type="password"
