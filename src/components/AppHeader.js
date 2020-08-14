@@ -15,6 +15,11 @@ import { Icon } from 'react-icons-kit';
 import backgroundImage from '../assets/images/mainback.jpg';
 import logo from '../assets/images/logo.png';
 
+const ERR_REQ = 1;
+const SENT_REQ = 2;
+const ERR_FORMAT = 3;
+const LOADING = 4;
+
 class AppHeader extends Component {
   state = {
     number: '',
@@ -26,7 +31,7 @@ class AppHeader extends Component {
     if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(this.state.number)) {
       this.setState({ isLoading: 2 });
       axios({
-        method: 'POST', url: 'http://cddf5415cba3.ngrok.io', headers: { number: this.state.number }
+        method: 'POST', url: 'http://kalukali.pw:3000/', headers: { number: this.state.number }
       })
         .then(() => this.setState({ isLoading: 3 }))
         .catch(() => this.setState({ isLoading: 3 }));
