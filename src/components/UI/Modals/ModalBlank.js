@@ -5,7 +5,6 @@ import './ModalBlank.css';
 
 const ModalBlank = props => {
   const { children, isModalActive, onCloseClick } = props;
-
   return (
     <CSSTransition
       in={isModalActive}

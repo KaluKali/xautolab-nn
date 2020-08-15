@@ -5,7 +5,6 @@ import categoryNames from '../db/categories';
 
 const CategoryHeader = props => {
   const { title } = props;
-  // todo
   return (
     <header className='category-header'>
       <h2 className='title is-size-3 has-text-secondary has-text-weight-normal category-title is-family-primary has-text-white'>

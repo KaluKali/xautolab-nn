@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps, null)(AdminPage);
+export default connect(mapStateToProps)(AdminPage);
