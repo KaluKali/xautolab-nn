@@ -81,26 +81,26 @@ class ProductsList extends Component {
     return (
       <div className="products-table-wrapper">
         <header>
-          <h3 className="title">Услуги в магазине</h3>
-          <p className="subtitle">Всего: {this.state.count}</p>
+          <h2 className="title has-text-white">Услуги в магазине</h2>
+          <p className="subtitle has-text-white">Всего: {this.state.count}</p>
         </header>
         <table className="table is-fullwidth">
           <thead>
             <tr>
               <th>
-                <abbr title="Name">Название</abbr>
+                <p title="Name">Название</p>
               </th>
               <th>
-                <abbr title="Category">Категория</abbr>
+                <p title="Category">Категория</p>
               </th>
               <th>
-                <abbr title="Price">Цена</abbr>
+                <p title="Price">Цена</p>
               </th>
               <th>
-                <abbr title="Status">Статус</abbr>
+                <p title="Status">Статус</p>
               </th>
               <th>
-                <abbr title="Action">Изменение</abbr>
+                <p title="Action">Изменение</p>
               </th>
             </tr>
           </thead>
@@ -133,8 +133,10 @@ const mapStateToProps = (state) => ({
   isLoading: state.products.isLoading,
 });
 const mapDispatchToProps = dispatch => ({
-  getProductsNext: (pointer, lastDoc, perPage) => dispatch(getProductsNext(pointer, lastDoc, perPage)),
-  getProductsPrev: (pointer, lastDoc, perPage) => dispatch(getProductsPrev(pointer, lastDoc, perPage))
+  getProductsNext:
+    (pointer, lastDoc, perPage) => dispatch(getProductsNext(pointer, lastDoc, perPage)),
+  getProductsPrev:
+    (pointer, lastDoc, perPage) => dispatch(getProductsPrev(pointer, lastDoc, perPage))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductsList));

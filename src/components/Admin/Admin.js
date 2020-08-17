@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import {
   Switch, Link, Route, withRouter
 } from 'react-router-dom';
 import ProductEditForm from './ProductEditForm';
 import ProductsList from './ProductsList';
 import './Admin.css';
+import { logOutUser } from '../../store/actions';
 
 class Admin extends Component {
   render() {
     return (
       <Fragment>
-        <div className="admin-actions">
+        <div className="admin-actions ">
           <div className="columns">
             <div className="column ">
               <Link
@@ -29,21 +31,13 @@ class Admin extends Component {
               </Link>
             </div>
             <div className="column">
-              <Link
-                to="/my-account"
-                className="button is-medium is-primary is-fullwidth button-tile"
-              >
-                Аккаунт
-              </Link>
-            </div>
-            <div className="column">
-              <button className="button is-medium is-warning is-inverted is-fullwidth button-tile">
+              <button className="button is-medium is-danger is-fullwidth button-tile" onClick={this.props.logOutUser}>
                 Выход
               </button>
             </div>
           </div>
         </div>
-        <div className="columns">
+        <div className="columns ">
           <div className="column is-8">
             <Switch>
               <Route
@@ -70,5 +64,14 @@ class Admin extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+});
+const mapDispatchToProps = dispatch => ({
+  logOutUser: () => dispatch(logOutUser())
+});
 
-export default withRouter(Admin);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Admin));

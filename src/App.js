@@ -14,7 +14,6 @@ import Navigation from './components/Navigation/Navigation';
 import AppHeader from './components/AppHeader';
 import FrontPage from './Screens/FrontPage';
 import CategoryPage from './Screens/CategoryPage';
-import MyAccount from './Screens/MyAccount';
 import ContactPage from './Screens/ContactPage';
 import AdminPage from './Screens/AdminPage';
 
@@ -38,7 +37,6 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={FrontPage} />
             <Route path="/category/:categoryName" component={CategoryPage} />
-            <Route path="/my-account" component={MyAccount} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/admin" component={AdminPage} />
           </Switch>

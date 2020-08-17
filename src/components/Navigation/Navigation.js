@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Icon } from 'react-icons-kit';
-import { user } from 'react-icons-kit/ikons/user';
 import { ic_build as adminIcon } from 'react-icons-kit/md/ic_build';
 
 import './Navigation.css';
@@ -69,9 +68,6 @@ class Navigation extends Component {
                   <Icon className="navbar-icon" icon={adminIcon} />
                 </Link>
               ) : null}
-              <Link to="/my-account" className="navbar-item has-text-white has-background-black">
-                <Icon className="navbar-icon" icon={user} />
-              </Link>
             </div>
           </div>
         </div>

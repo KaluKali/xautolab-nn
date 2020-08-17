@@ -28,7 +28,7 @@ class AppHeader extends Component {
 
   onCallBack = (e) => {
     e.preventDefault();
-    if (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(this.state.number)) {
+    if (/^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/.test(this.state.number)) {
       this.setState({ isLoading: LOADING });
       axios({
         method: 'POST', url: 'http://kalukali.pw:3000/', headers: { number: this.state.number }
@@ -110,7 +110,7 @@ class AppHeader extends Component {
                 <div className="tile is-child box">
                   <div className="columns is-gapless">
                     <div className="column is-9 has-text-justified has-text-centered-mobile">
-                      <label className="label">Введите номер телефона<br/>мы перезвоним вам в течении <p className="has-text-danger">15 секунд</p></label>
+                      <label className="label has-text-black">Введите номер телефона<br/>мы перезвоним вам в течении <p className="has-text-danger">15 секунд</p></label>
                     </div>
                     <div className="column">
                       <button className={'has-background-white has-text-white wishlist-button centered '}>

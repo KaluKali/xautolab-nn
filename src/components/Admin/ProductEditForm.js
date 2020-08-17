@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import './ProductEditForm.css';
 import { db_products } from '../../db/db';
+import categoryNames from '../../db/categories';
 
 class ProductEditForm extends Component {
   state = {
@@ -158,7 +159,7 @@ class ProductEditForm extends Component {
 
     return (
       <form className="product-edit-form" onSubmit={this.handleFormSubmit}>
-        <h2 className="title">
+        <h2 className="title has-text-white">
           {productId ? `Изменяемый товар: ${productId}` : 'Добавить новый товар'}
         </h2>
         <div className="field">
@@ -197,7 +198,7 @@ class ProductEditForm extends Component {
         <div className="field">
           <label className="label">Активность</label>
           <div className="control">
-            <label className="radio">
+            <label className="radio has-text-white has-text-weight-bold">
               <input
                 onChange={this.handleFormChange}
                 type="radio"
@@ -207,7 +208,7 @@ class ProductEditForm extends Component {
               />
               Видимый
             </label>
-            <label className="radio">
+            <label className="radio has-text-white has-text-weight-bold">
               <input
                 onChange={this.handleFormChange}
                 type="radio"
@@ -335,16 +336,11 @@ class ProductEditForm extends Component {
                 id="category"
                 onChange={this.handleFormChange}
               >
-                <option>overall</option>
-                <option>dvc</option>
-                <option>mkppakpp</option>
-                <option>profdiag</option>
-                <option>autoelect</option>
-                <option>texobs</option>
-                <option>slesrem</option>
-                <option>remtormsys</option>
-                <option>remtoplssys</option>
-                <option>other</option>
+                {
+                  Object.keys(categoryNames).map((name, key) => (
+                    <option value={name} key={key}>{categoryNames[name].name}</option>
+                  ))
+                }
               </select>
             </div>
           </div>
