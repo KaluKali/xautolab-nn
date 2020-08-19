@@ -11,10 +11,11 @@ class ProductEditForm extends Component {
     pictures: [],
     tags: [],
     color: '',
-    discount: '',
+    discount: 0,
     category: 'overall',
+    subprice: '',
     description: '',
-    isActive: false,
+    isActive: true,
     tag: '',
     picture: ''
   };
@@ -35,8 +36,9 @@ class ProductEditForm extends Component {
             color: product.color,
             discount: product.discount,
             category: product.category,
+            subprice: product.subprice,
             description: product.description,
-            isActive: product.isActive
+            isActive: 'true'
           });
         });
     }
@@ -53,10 +55,11 @@ class ProductEditForm extends Component {
       pictures: [],
       tags: [],
       color: '',
-      discount: '',
+      discount: 0,
       category: '',
       description: '',
-      isActive: false,
+      subprice: '',
+      isActive: true,
       tag: '',
       picture: ''
     });
@@ -72,14 +75,15 @@ class ProductEditForm extends Component {
       try {
         await db_products.doc(productId).set({
           name: this.state.name,
-          price: this.state.price,
+          price: parseInt(this.state.price),
           pictures: this.state.pictures,
           tags: this.state.tags,
           color: this.state.color,
-          discount: this.state.discount,
+          discount: parseInt(this.state.discount),
           category: this.state.category,
+          subprice: this.state.subprice,
           description: this.state.description,
-          isActive: (this.state.isActive === 'true')
+          isActive: this.state.isActive === 'true'
         });
         this.handleFormClear();
       } catch (error) {
@@ -90,14 +94,15 @@ class ProductEditForm extends Component {
       try {
         await db_products.add({
           name: this.state.name,
-          price: this.state.price,
+          price: parseInt(this.state.price),
           pictures: this.state.pictures,
           tags: this.state.tags,
           color: this.state.color,
-          discount: this.state.discount,
+          discount: parseInt(this.state.discount),
           category: this.state.category,
+          subprice: this.state.subprice,
           description: this.state.description,
-          isActive: (this.state.isActive === 'true')
+          isActive: this.state.isActive === 'true'
         });
         this.handleFormClear();
       } catch (error) {
@@ -175,6 +180,22 @@ class ProductEditForm extends Component {
               id="name"
               type="text"
               placeholder="Название товара"
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label htmlFor="subprice" className="label">
+            До цены
+          </label>
+          <div className="control">
+            <input
+              value={this.state.subprice}
+              onChange={this.handleFormChange}
+              className="input"
+              name="subprice"
+              id="subprice"
+              type="text"
+              placeholder="до цены (пример: %до цены% %цена%)"
             />
           </div>
         </div>
@@ -319,7 +340,7 @@ class ProductEditForm extends Component {
               name="discount"
               id="discount"
               type="number"
-              min="0"
+              min={0}
               placeholder="Процент скидки"
             />
           </div>

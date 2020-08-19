@@ -42,8 +42,8 @@ class Navigation extends Component {
             && 'is-active'}`}
           >
             <div className="navbar-end">
-              <Link to="/category/profdiag" className="navbar-item has-text-white has-background-black has-text-weight-bold">
-                Проф. диагностика
+              <Link to="/category/diagremrule" className="navbar-item has-text-white has-background-black has-text-weight-bold">
+                Рулевое управление
               </Link>
               <Link to="/category/remtormsys" className="navbar-item has-text-white has-background-black has-text-weight-bold">
                 Тормозная сис-ма

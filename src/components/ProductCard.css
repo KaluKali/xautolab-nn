@@ -11,6 +11,9 @@
 
 .product-card__figure {
 	position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 	height: 350px;
 	overflow: hidden;
 }

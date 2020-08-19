@@ -27,7 +27,7 @@ const ProductPreview = props => {
           </Link>
         </header>
         <span className="is-block has-text-danger is-size-5-touch is-size-4-desktop has-text-weight-semibold product-preview-modal__product-price">
-          {price} ₽
+          {`${price} ₽`}
         </span>
 
       </div>

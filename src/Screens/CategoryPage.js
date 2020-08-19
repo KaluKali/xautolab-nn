@@ -7,6 +7,7 @@ import ModalBlank from '../components/UI/Modals/ModalBlank';
 import Loader from '../components/UI/Loaders/Loader';
 import { db_products } from '../db/db';
 import Alert from '../components/UI/Alerts/Alert';
+import { withRouter } from 'react-router-dom';
 
 class CategoryPage extends Component {
   state = {
@@ -19,51 +20,47 @@ class CategoryPage extends Component {
   };
 
   // setting state when component mounts first time
-  async componentDidMount() {
+  componentDidMount() {
     const { categoryName } = this.props.match.params;
-    try {
-      const docs = await db_products.where('category', '==', categoryName).get();
-      const productsInCategory = [];
-      docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
-      this.setState({
-        categoryName,
-        productsInCategory,
-        isLoading: false
-      });
-    } catch (error) {
-      console.log(error);
-      this.setState({
-        isLoading: false,
-        error: true
-      });
-    }
+    // await db_products.get().then(docs => {
+    //   docs.docs.map(async (doc) => {
+    //     const ss = { ...doc.data(), subprice: 'от' };
+    //     await db_products.doc(doc.id).set(ss);
+    //   });
+    // });
+    db_products.where('category', '==', categoryName)
+      .get()
+      .then(docs => {
+        const productsInCategory = [];
+        docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
+        this.setState({
+          categoryName,
+          productsInCategory,
+          isLoading: false
+        });
+      })
+      .catch(() => this.setState({ isLoading: false, error: true }));
   }
 
   // if route changes fetching and filtering products
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     const currentCategoryName = this.props.match.params.categoryName;
     const previousCategoryName = prevProps.match.params.categoryName;
 
     if (currentCategoryName !== previousCategoryName) {
       this.setState({ isLoading: true });
-
-      try {
-        const docs = await db_products.where('category', '==', currentCategoryName).get();
-        const productsInCategory = [];
-        docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
-
-        this.setState({
-          categoryName: currentCategoryName,
-          productsInCategory,
-          isLoading: false
-        });
-      } catch (error) {
-        console.log(error);
-        this.setState({
-          isLoading: false,
-          error: true
-        });
-      }
+      db_products.where('category', '==', currentCategoryName)
+        .get()
+        .then(docs => {
+          const productsInCategory = [];
+          docs.docs.map((doc) => productsInCategory.push({ _id: doc.id, ...doc.data() }));
+          this.setState({
+            categoryName: currentCategoryName,
+            productsInCategory,
+            isLoading: false
+          });
+        })
+        .catch(() => this.setState({ isLoading: false, error: true }));
     }
   }
 
@@ -141,4 +138,4 @@ class CategoryPage extends Component {
   }
 }
 
-export default CategoryPage;
+export default withRouter(CategoryPage);

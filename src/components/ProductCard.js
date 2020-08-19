@@ -70,8 +70,8 @@ const ProductCard = props => {
           </label>
         </header>
         <div className="columns is-centered">
-          <div className="column is-4-touch is-5 has-text-centered has-text-danger has-text-weight-semibold product-card__price">
-            {subprice}{price.toFixed(2)} ₽
+          <div className="column is-4-touch is-6 has-text-centered has-text-danger has-text-weight-semibold product-card__price">
+            {`${subprice} ${price} ₽`}
           </div>
         </div>
       </div>

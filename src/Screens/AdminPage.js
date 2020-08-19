@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Admin from '../components/Admin/Admin';
 import SubPageHeader from '../components/SubPageHeader';
+
+import Admin from '../components/Admin/Admin';
 import LoginForm from '../components/Account/LoginForm';
 
 class AdminPage extends Component {
