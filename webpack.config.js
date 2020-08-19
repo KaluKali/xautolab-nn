@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (options) => ({
   target: 'web',
@@ -25,9 +26,9 @@ module.exports = (options) => ({
         use: 'file-loader'
       },
       {
-        // Preprocess 3rd party .css files located in node_modules
+        // Preprocess 3rd party .css files located in node_modules , 'style-loader', 'css-loader'
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
     ],
   },
@@ -40,7 +41,10 @@ module.exports = (options) => ({
   },
   plugins: options.plugins.concat(
     [
-
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
     ],
   )
 });
