@@ -17,6 +17,7 @@ const ProductCard = props => {
     },
     onQuickViewOpenHandler
   } = props;
+
   const onQuickViewClickHandler = e => {
     e.preventDefault();
     onQuickViewOpenHandler();
@@ -44,9 +45,7 @@ const ProductCard = props => {
         <img className="product-card__image" src={pictures[0]} alt="product" />
         <div className=" is-overlay product-card__figure-overlay">
           <div className="product-card__overlay-actions">
-            <label
-              className="button is-primary is-inverted product-card__figure-overlay-button"
-            >
+            <label className="button is-primary is-inverted product-card__figure-overlay-button">
               <Icon icon={circleRight} />
             </label>
           </div>
@@ -63,9 +62,7 @@ const ProductCard = props => {
       </div>
       <div className="card-content product-card__info">
         <header>
-          <label
-            className="title is-size-5 product-card__name has-text-centered has-text-white"
-          >
+          <label className="title is-size-5 product-card__name has-text-centered has-text-white">
             {name}
           </label>
         </header>

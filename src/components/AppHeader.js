@@ -12,8 +12,8 @@ import { ic_access_time } from 'react-icons-kit/md/ic_access_time';
 
 import './AppHeader.css';
 import { Icon } from 'react-icons-kit';
-import backgroundImage from '../assets/images/mainback.jpg';
-import logo from '../assets/images/logo.png';
+import backgroundImage from '../assets/mainback.jpg';
+import logo from '../assets/logo.png';
 
 const IDLE = 1;
 const SENT_REQ = 2;
@@ -31,7 +31,7 @@ class AppHeader extends Component {
     if (/^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/.test(this.state.number)) {
       this.setState({ isLoading: LOADING });
       axios({
-        method: 'POST', url: 'http://kalukali.pw:3000/', headers: { number: this.state.number }
+        method: 'POST', url: 'http://xautolab.ru:3000/', headers: { number: this.state.number }
       })
         .then(() => this.setState({ isLoading: SENT_REQ }))
         .catch(() => this.setState({ isLoading: SENT_REQ }));

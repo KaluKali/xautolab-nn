@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavigationContact.css';
-import logo from '../../assets/images/logonav.png';
+import logo from '../../assets/logonav.png';
 
 const NavigationContact = () => (
   <div className='columns is-gapless is-vcentered has-background-black is-marginless is-family-secondary'>

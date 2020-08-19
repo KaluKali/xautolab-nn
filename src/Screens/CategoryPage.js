@@ -19,15 +19,9 @@ class CategoryPage extends Component {
     error: ''
   };
 
-  // setting state when component mounts first time
   componentDidMount() {
     const { categoryName } = this.props.match.params;
-    // await db_products.get().then(docs => {
-    //   docs.docs.map(async (doc) => {
-    //     const ss = { ...doc.data(), subprice: 'от' };
-    //     await db_products.doc(doc.id).set(ss);
-    //   });
-    // });
+
     db_products.where('category', '==', categoryName)
       .get()
       .then(docs => {
@@ -42,7 +36,6 @@ class CategoryPage extends Component {
       .catch(() => this.setState({ isLoading: false, error: true }));
   }
 
-  // if route changes fetching and filtering products
   componentDidUpdate(prevProps) {
     const currentCategoryName = this.props.match.params.categoryName;
     const previousCategoryName = prevProps.match.params.categoryName;

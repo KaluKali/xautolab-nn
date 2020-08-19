@@ -1,8 +1,4 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
 const path = require('path');
-
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 
 module.exports = (options) => ({
   target: 'web',
@@ -44,8 +40,7 @@ module.exports = (options) => ({
   },
   plugins: options.plugins.concat(
     [
-      new UnusedFilesWebpackPlugin(),
-      new BundleAnalyzerPlugin()
+
     ],
   )
 });

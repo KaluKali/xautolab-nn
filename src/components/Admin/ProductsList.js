@@ -22,7 +22,11 @@ class ProductsList extends Component {
       const pointer = db_products.orderBy('category');
       // todo firebase count documents
       const querySnapshot = await db_products.get();
-
+      querySnapshot.docs.map(async (doc) => {
+        let doc_data = doc.data();
+        doc_data.pictures[0] = doc_data.pictures[0].replace('http://kalukali.pw/','http://xautolab.ru/');
+        await db_products.doc(doc.id).set(doc_data);
+      });
       const count = querySnapshot.docs.length;
 
       const paginationItems = Math.ceil(count / this.state.perPage);

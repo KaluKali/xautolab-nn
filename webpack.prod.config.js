@@ -1,7 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = require('./webpack.config')({
   mode: 'production',
@@ -49,5 +52,7 @@ module.exports = require('./webpack.config')({
       inject: true,
       // chunks: ['main']
     }),
+    new UnusedFilesWebpackPlugin(),
+    new BundleAnalyzerPlugin()
   ],
 });

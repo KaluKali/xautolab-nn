@@ -1,14 +1,14 @@
-import dvc from '../assets/images/dvc.jpg';
-import profdiag from '../assets/images/profdiag.jpg';
-import mkppakpp from '../assets/images/mkppakpp.jpg';
-import autoelect from '../assets/images/autoelect.jpg';
-import slesrem from '../assets/images/slesrem.jpg';
-import texobs from '../assets/images/mainback.jpg';
-import diagremrule from '../assets/images/rule.jpg';
-import remtoplsys from '../assets/images/remtoplsys.jpg';
-import remtormsys from '../assets/images/remtormsys.jpg';
-import diagrempodv from '../assets/images/diagrempodv.jpg';
-import remredrazd from '../assets/images/remredrazd.jpg';
+import dvc from '../assets/dvc.jpg';
+import profdiag from '../assets/profdiag.jpg';
+import mkppakpp from '../assets/mkppakpp.jpg';
+import autoelect from '../assets/autoelect.jpg';
+import slesrem from '../assets/slesrem.jpg';
+import texobs from '../assets/mainback.jpg';
+import diagremrule from '../assets/rule.jpg';
+import remtoplsys from '../assets/remtoplsys.jpg';
+import remtormsys from '../assets/remtormsys.jpg';
+import diagrempodv from '../assets/diagrempodv.jpg';
+import remredrazd from '../assets/remredrazd.jpg';
 
 const categoryNames = {
   dvc: {
