@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import 'bulma/css/bulma.min.css';
 import 'bulma-tooltip';
 import './App.css';
-import { userLoggedIn } from './store/actions';
-import { auth } from './db/db';
 
 import SocialLinks from './components/Navigation/SocialLinks';
 import NavigationContact from './components/Navigation/NavigationContact';
@@ -19,14 +17,6 @@ const AdminPage = React.lazy(() => import('./Screens/AdminPage'));
 const CategoryPage = React.lazy(() => import('./Screens/CategoryPage'));
 
 class App extends Component {
-  componentDidMount() {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.props.userLoggedIn(user);
-      }
-    });
-  }
-
   render() {
     return (
       <div>
@@ -49,13 +39,10 @@ class App extends Component {
 const mapStateToProps = state => ({
   user: state.user
 });
-const mapDispatchToProps = dispatch => ({
-  userLoggedIn: user => dispatch(userLoggedIn(user.email))
-});
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
   )(App)
 );

@@ -9,7 +9,7 @@
   "license": "ISC",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
-    "build": "webpack  --trace-deprecation --config webpack.prod.config.js && terser ./dist/main.js -o ./dist/main.js --comments false",
+    "build": "webpack --trace-deprecation --config webpack.prod.config.js && terser ./dist/main.js -o ./dist/main.js --comments false",
     "lint": "eslint src --cache --ext .js --color --format codeframe"
   },
   "devDependencies": {

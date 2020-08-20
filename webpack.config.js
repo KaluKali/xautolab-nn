@@ -27,8 +27,9 @@ module.exports = (options) => ({
       },
       {
         // Preprocess 3rd party .css files located in node_modules , 'style-loader', 'css-loader'
+        // process.env.NODE_ENV
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: process.env.NODE_ENV === 'production' ? [MiniCssExtractPlugin.loader, 'css-loader'] : ['style-loader', 'css-loader']
       },
     ],
   },

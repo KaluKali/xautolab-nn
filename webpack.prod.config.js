@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+process.env.NODE_ENV = 'production';
+
 module.exports = require('./webpack.config')({
   mode: 'production',
   entry: {
