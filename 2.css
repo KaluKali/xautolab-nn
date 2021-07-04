@@ -1,0 +1,42 @@
+.subpage-header {
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(108, 106, 100, 0.125);
+}
+.subpage-header__title {
+  font-family: BlinkMacSystemFont, -apple-system, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.subpage-header__subtitle {
+  font-family: BlinkMacSystemFont, -apple-system, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.product-edit-form {
+	margin-bottom: 2rem;
+}
+
+.button-submit {
+	margin-right: .5rem;
+
+}
+
+.label {
+  color: white;
+}
+
+.tag {
+	margin-right: .25rem;
+}
+
+.products-table-wrapper {}
+
+.products-table-wrapper .table {
+	margin-top: 1rem;
+
+}
+.admin-actions {
+	margin-bottom: 2rem;
+}
+
+.button-tile {
+	min-height: 75px;
+}
